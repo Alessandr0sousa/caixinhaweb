@@ -19,16 +19,26 @@ export default class Main extends Component {
         return (
             <div className="pessoa-list" >
                 {
-                    this.state.pessoa && this.state.pessoa.map(pessoa => (
-                        <article key={pessoa.id_pes}>
+                    this.state.pessoa && this.state.pessoa.map(pessoa => {
+                        return <article key={pessoa.id_pes}>
                             <strong>{pessoa.nome}</strong>
-                            <div>
-                               <label>P1</label>
-                               <span>&#10004;</span>
+                            <div className="parcelas">
+                                {
+                                    p = ()=>{
+                                        for (let i = 0; i < 13; i++) {
+                                            if (pessoa.p+i) {
+                                                <span className="ok">{pessoa.p1}&#10004;</span>
+                                            } else {
+                                                <span className="nok">{pessoa.p2}&#10008;</span>               
+                                            }
+                                            
+                                        }
+                                    }
+                                }
                             </div>
                             <a href="">Detalhar</a>
                         </article>
-                    ))
+                    })
                 }
             </div>
         );

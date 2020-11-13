@@ -33,3 +33,17 @@
     background: #da552f;
     color: #fff;
 }
+
+.parcelas{
+    font-size: 1rem;
+    margin: 5px;
+    padding: 0;
+}
+
+.ok{
+    color: #008000;
+}
+
+.nok{
+    color: #ff0000;
+}
