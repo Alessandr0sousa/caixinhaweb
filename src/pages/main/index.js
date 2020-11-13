@@ -22,7 +22,10 @@ export default class Main extends Component {
                     this.state.pessoa && this.state.pessoa.map(pessoa => (
                         <article key={pessoa.id_pes}>
                             <strong>{pessoa.nome}</strong>
-                            <br/>
+                            <div>
+                               <label>P1</label>
+                               <span>&#10004;</span>
+                            </div>
                             <a href="">Detalhar</a>
                         </article>
                     ))
