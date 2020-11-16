@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
+import { Link } from "react-router-dom";
 
 import './style.css';
 
@@ -21,7 +22,7 @@ export default class Main extends Component {
                 {this.state.pessoa && this.state.pessoa.map(pessoa => {
                     const ok = String.fromCharCode(10004);
                     const nok = String.fromCharCode(10008);
-                    return (<article id={pessoa.id_pes} key={pessoa.id_pes}>
+                    return (<article key={pessoa.id_pes}>
                         <strong>{pessoa.nome}</strong>
                         <div className="parcelas">
                             <label>P1 - </label>
@@ -49,7 +50,7 @@ export default class Main extends Component {
                             <label>P12 - </label>
                             <span className={pessoa.p12 ? "ok" : "nok"}>{pessoa.p12 ? ok : nok}  </span>
                         </div>
-                        <a href="">Detalhar</a>
+                        <Link to={`/pessoa/${pessoa.id_pes}`}>Detalhar</Link>
                     </article>)
                 })
                 }
