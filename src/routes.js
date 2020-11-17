@@ -5,7 +5,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Main from './pages/main';
 import Pessoa from './pages/pessoa';
 
-
 const Routes = () => (
     <BrowserRouter>
         <Switch>
