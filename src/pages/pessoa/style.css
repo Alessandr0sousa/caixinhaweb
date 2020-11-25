@@ -12,7 +12,7 @@
     padding: 10px;
 }
 
-.pessoa-info article a{
+a{
     height: 22px;
     border-radius: 5px;
     border: 2px solid #da552f;
@@ -21,7 +21,7 @@
     padding: 3px;
     color: #da552f;
     font-weight: bold;
-    font-size: .7rem;
+    font-size: 1rem;
     text-decoration: none;
     /* display: block; */
     justify-content: center;
@@ -29,9 +29,18 @@
     transition: all 0.3s;
 }
 
-.pessoa-info article a:hover{
+article{
+    margin-top: 15px;
+}
+
+a:hover{
     background: #da552f;
     color: #fff;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
 }
 
 .parcelas{
@@ -42,8 +51,10 @@
 
 .ok{
     color: #008000;
+    cursor: pointer;
 }
 
 .nok{
     color: #ff0000;
+    cursor: pointer;
 }

@@ -7,7 +7,7 @@ import './style.css';
 
 export default class Main extends Component {
     state = {
-        pesaoa: []
+        pessoa: []
     };
 
     componentDidMount() {
