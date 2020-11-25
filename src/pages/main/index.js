@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import uniqid from 'uniqid';
+// import uniqid from 'uniqid';
 import { Link } from "react-router-dom";
 
 import './style.css';
@@ -18,7 +18,7 @@ export default class Main extends Component {
         this.setState({ pessoa: response.data });
     }
     render() {
-        console.log(uniqid());
+        // console.log(uniqid());
         return (
             <div className="pessoa-info" >
                 {this.state.pessoa && this.state.pessoa.map(pessoa => {

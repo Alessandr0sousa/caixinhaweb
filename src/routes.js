@@ -4,14 +4,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Main from './pages/main';
 import Pessoa from './pages/pessoa';
-import Cota from './pages/cota';
+import Emprestimo from './pages/emprestimo';
 
 const Routes = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/pessoa/:id" component={Pessoa} />
-            <Route path="/cota/:id" component={Cota} />
+            <Route path="/emprestimo" component={Emprestimo} />
         </Switch>
     </BrowserRouter>
 );

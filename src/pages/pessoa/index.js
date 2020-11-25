@@ -16,10 +16,25 @@ export default class Pessoa extends Component {
         const response = await api.get(`/pessoa/${id}`);
         this.setState({ pessoa: response.data });
     }
-    pagar = async (parcela) => {
+    pagar = async (parcela, v) => {
         const { id } = this.props.match.params;
-        const response = await api.patch(`/cota/${id}`, { parcela });
-        console.log(response);
+        await api.patch(`/cota/${id}`, { parcela, v });
+        // alert("Parcela atualizada com sucesso!");
+        // window.location.reload();
+        // const newPessoa = [...this.state.pessoa];
+        // newPessoa[0].parcelas[parcela - 1] = v;
+
+        // this.setState({pessoa: newPessoa});
+        this.setState(prevState => {
+            const newPessoa = [...prevState.pessoa];
+            newPessoa[0].parcelas[parcela - 1] = v;
+            
+            return {
+                ...prevState,
+                pessoa: newPessoa
+            }
+        });
+
     }
     render() {
         return (
@@ -33,9 +48,9 @@ export default class Pessoa extends Component {
                             <strong>{pessoa.nome}</strong>
                             <div className="grid-container">
                                 {pessoa.parcelas && pessoa.parcelas.map((parcela, index) => (
-                                    <div key={index} className="parcelas">
+                                    < div key={index} className="parcelas" >
                                         <label>P{index + 1} - </label>
-                                        <span className={parcela ? "ok" : "nok"} title={`Parcela${index}`} onClick={() => this.pagar(index + 1)}>{parcela ? ok : nok}</span>
+                                        <span className={parcela ? "ok" : "nok"} title={`Parcela${index}`} onClick={() => this.pagar(index + 1, parcela ? 0 : 1)}>{parcela ? ok : nok}</span>
                                     </div>
                                 ))}
                             </div>
@@ -43,7 +58,7 @@ export default class Pessoa extends Component {
                     )
                 })
                 }
-            </div>
+            </div >
         );
     }
 }
