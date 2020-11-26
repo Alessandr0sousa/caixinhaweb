@@ -1,5 +1,25 @@
-.empretimo-list{
-    max-width: 700px;
+.emprestimo-info{
+    max-width: 500px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
+
+.emprestimo-info article{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+.emprestimos{
+    font-size: 1rem;
+    margin: 5px;
+    padding: 0;
+}
+
+.emprestimo-valor{
+    font-weight: bold;
+    color: #881515;
+}   

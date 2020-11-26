@@ -38,7 +38,7 @@ export default class Pessoa extends Component {
     }
     render() {
         return (
-            <div className="pessoa-list" >
+            <div className="pessoa-info" >
                 <Link to="/">Voltar</Link>
                 {this.state.pessoa && this.state.pessoa.map(pessoa => {
                     const ok = String.fromCharCode(10004);

@@ -20,7 +20,7 @@ export default class Main extends Component {
     render() {
         // console.log(uniqid());
         return (
-            <div className="pessoa-info" >
+            <div className="pessoa-list" >
                 {this.state.pessoa && this.state.pessoa.map(pessoa => {
                     return (<article key={pessoa.id_pes}>
                         <strong>{pessoa.nome}</strong>
