@@ -5,14 +5,21 @@ import './styles.css';
 
 export default class Emprestimo extends Component {
   state = {
-    emprestimo: []
+    emprestimo: [],
+    pagamento: []
   };
   componentDidMount() {
     this.loadEmprestimo();
+    // this.loadPagamento();
   }
   loadEmprestimo = async () => {
     const response = await api.get(`/emprestimo`);
     this.setState({ emprestimo: response.data });
+    console.log(response.data);
+  }
+  loadPagamento = async () => {
+    const response = await api.get(`/pagamento`);
+    this.setState({ pagamento: response.data });
     console.log(response.data);
   }
   render() {
