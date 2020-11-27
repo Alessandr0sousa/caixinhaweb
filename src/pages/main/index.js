@@ -26,7 +26,7 @@ export default class Main extends Component {
                         <strong>{pessoa.nome}</strong>
                         <div className="parcelas">
                             <label>Acumulado: </label>
-                            {pessoa.p1 + pessoa.p2 + pessoa.p3 + pessoa.p4 + pessoa.p5 + pessoa.p6 + pessoa.p7 + pessoa.p8 + pessoa.p9 + pessoa.p10 + pessoa.p11 + pessoa.p12}
+                            {"R$ "+(pessoa.p1 + pessoa.p2 + pessoa.p3 + pessoa.p4 + pessoa.p5 + pessoa.p6 + pessoa.p7 + pessoa.p8 + pessoa.p9 + pessoa.p10 + pessoa.p11 + pessoa.p12).toLocaleString('pt-br')}
                         </div>
                         <Link to={`/pessoa/${pessoa.id_cota}`}>Detalhar</Link>
                     </article>);
