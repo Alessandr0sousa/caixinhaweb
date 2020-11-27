@@ -28,6 +28,9 @@ a{
     justify-items: center;
     transition: all 0.3s;
 }
+a.btn-emp{
+    display: flex;
+}
 
 article{
     margin-top: 14px;

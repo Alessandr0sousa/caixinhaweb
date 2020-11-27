@@ -34,7 +34,6 @@ export default class Pessoa extends Component {
                 pessoa: newPessoa
             }
         });
-
     }
     render() {
         return (
@@ -51,8 +50,9 @@ export default class Pessoa extends Component {
                                     < div key={index} className="parcelas" >
                                         <label>P{index + 1} - </label>
                                         <span className={parcela ? "ok" : "nok"} title={`Parcela${index}`} onClick={() => this.pagar(index + 1, parcela ? 0 : 1)}>{parcela ? ok : nok}</span>
-                                    </div>
+                                    </div>   
                                 ))}
+                                <Link className="btn-emp" to={`/emprestimo/${pessoa.id_pes}`}>Emprestimos</Link>
                             </div>
                         </article>
                     )
