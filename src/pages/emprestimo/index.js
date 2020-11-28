@@ -22,7 +22,7 @@ export default class Emprestimo extends Component {
     const { id } = this.props.match.params;
     const response = await api.get(`/pagamento/${id}`);
     this.setState({ pagamento: response.data });
-    console.log(response.data);
+    console.log({id});
   }
   render() {
     return (
@@ -40,7 +40,7 @@ export default class Emprestimo extends Component {
                 </div>
                 {this.state.pagamento && this.state.pagamento.map(pagamento => {
                   return (
-                    <div key={emprestimo.id_emp} className="pagamentos">
+                    <div key={emprestimo.id_pag} className="pagamentos">
                       <span className="pagamento-valor">{"R$ " + emprestimo.valor_juro.toLocaleString('pt-br')}</span>
                       <span className="pagamento-valor">{"R$ " + emprestimo.valor_quitacao.toLocaleString('pt-br')}</span>
                     </div>
