@@ -19,24 +19,28 @@ export default class Pagamento extends Component {
     render() {
         return (
             <div className="pagamento-info" >
-                {this.state.pagamento && this.state.pagamento.map(pagamento => {
-                    return (
-                        <article key={pagamento.id_pag} className="pagamentos">
-                            <div>
-                                <label className="rotulo">Juros</label>
-                                <span className="pagamento-valor">{"R$ " + pagamento.valor_juro.toLocaleString('pt-br')}</span>
-                            </div>
-                            <div>
-                                <label className="rotulo">Quitação</label>
-                                <span className="pagamento-valor">{"R$ " + pagamento.valor_quitacao.toLocaleString('pt-br')}</span>
-                            </div>
-                            <div>
-                                <label className="rotulo">Data</label>
-                                <span className="pagamento-data">{"R$ " + pagamento.data.toLocaleString('pt-br')}</span>
-                            </div>
-                        </article>
-                    )
-                })}
+                {/* <h3>{response.data}</h3> */}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Juro</th>
+                            <th>Quitação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.pagamento && this.state.pagamento.map(pagamento => {
+                            return (
+                                <tr key={pagamento.id_pag}>
+                                    <td>{pagamento.data}</td>
+                                    <td>{"R$ " + pagamento.valor_juro.toLocaleString('pt-br')}</td>
+                                    <td>{"R$ " + pagamento.valor_quitacao.toLocaleString('pt-br')}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+                <span className="new" title="Adicionar pagamento">&#10006;</span>
             </div >
         );
     }

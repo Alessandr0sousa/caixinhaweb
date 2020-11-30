@@ -28,7 +28,7 @@ export default class Pessoa extends Component {
         this.setState(prevState => {
             const newPessoa = [...prevState.pessoa];
             newPessoa[0].parcelas[parcela - 1] = v;
-            
+
             return {
                 ...prevState,
                 pessoa: newPessoa
@@ -50,8 +50,10 @@ export default class Pessoa extends Component {
                                     < div key={index} className="parcelas" >
                                         <label>P{index + 1} - </label>
                                         <span className={parcela ? "ok" : "nok"} title={`Parcela${index}`} onClick={() => this.pagar(index + 1, parcela ? 0 : 1)}>{parcela ? ok : nok}</span>
-                                    </div>   
+                                    </div>
                                 ))}
+                            </div>
+                            <div className="detatalhar">
                                 <Link className="btn-emp" to={`/emprestimo/${pessoa.id_pes}`}>Emprestimos</Link>
                             </div>
                         </article>

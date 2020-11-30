@@ -61,3 +61,9 @@ a:hover{
     color: #ff0000;
     cursor: pointer;
 }
+
+.detatalhar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
