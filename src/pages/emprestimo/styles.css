@@ -1,3 +1,29 @@
+:root{
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --primary-hover: #0069d9;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+
+}
+
 .emprestimo-info{
     max-width: 500px;
     margin: 20px auto 0;
@@ -12,7 +38,6 @@
     padding: 10px;
 }
 
-
 .emprestimos{
     font-size: 1rem;
     margin: 5px;
@@ -22,4 +47,34 @@
 .emprestimo-valor{
     font-weight: bold;
     color: #881515;
-}   
+}
+
+.emprestimos-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a{
+    height: 22px;
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    padding: 3px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    /* display: block; */
+    justify-content: center;
+    justify-items: center;
+    transition: all 0.3s;
+}
+a.btn-pag{
+    display: flex;
+}
+a:hover{
+    background: #da552f;
+    color: #fff;
+}
