@@ -10,3 +10,8 @@ body{
     background: #fafafa;
     color: #333;
 }
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
