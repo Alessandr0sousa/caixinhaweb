@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
+import uniqid from 'uniqid';
 // import { Link } from "react-router-dom";
 import './styles.css';
 
@@ -9,12 +10,11 @@ export default class Pagamento extends Component {
     };
     componentDidMount() {
         this.loadPagamento();
+        this.somar();
     }
     loadPagamento = async () => {
-        const { id } = this.props.match.params;
-        const response = await api.get(`/pagamento/${id}`);
+        const response = await api.get(`/pagamento`);
         this.setState({ pagamento: response.data });
-        console.log(response);
     }
     mostar = async () => {
         const formElement = document.querySelector('div.insert');
@@ -24,11 +24,24 @@ export default class Pagamento extends Component {
             formElement.style.display = 'none';
         }
     }
+    somar = async () => {
+        const pagamento = this.state.pagamento && this.state.pagamento;
+
+        const total = pagamento.map(pagamento => 
+            pagamento.reduce((acc, pag) => {
+                return (acc + pag.valor_juro);
+            })
+        )
+        console.log("Total: " + total)
+    }
     pagar = async () => {
+        const { id } = this.props.match.params;
+        const id_pag = uniqid();
         const valor_juro = await document.getElementById('juro').value;
         const valor_quitacao = await document.getElementById('quitacao').value;
-        await api.post(`/pagamento`, { valor_juro, valor_quitacao });
+        // await api.post(`/pagamento`, { id_pag, id_emp, valor_juro, valor_quitacao });
         // alert( `Juros: ${valor_juro.toLocaleString('pt-br')} e Quitação ${valor_quitacao.toLocaleString('pt-br')}` );
+        console.log( { id_pag, id, valor_juro, valor_quitacao } );
     }
     render() {
         return (
