@@ -25,12 +25,9 @@
 }
 
 .pagamento-info{
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto 0;
     padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .pagamento-info article{
@@ -39,6 +36,9 @@
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .primary{
@@ -63,30 +63,73 @@
     display: block;
 }
 
-th, td{
-    padding: 5px;
-}
-
-table, th, td{
-    width: 75%;
-    border: 1px solid #000;
-    text-align: center;
+td, th{
+    padding: 8px;
 }
 
 table{
+    width: 90%;
+}
+
+table, th {
+    text-align: center;
+    border-bottom: 1px solid #474747;
     border-collapse: collapse;
 }
 
+.click-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.click{
+    font-size: .6rem;
+    margin: 2px;
+}
+
 span.new{
-    padding: 5px 10px;
+    color: green;
+    font-size: 1.5rem;
     transform: rotate(45deg);
-    color: var(--success);
-    border-radius: 50%;
-    cursor: pointer;
     font-weight: bold;
-    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .5s;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 span.new:hover{
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+div.form-group {
+    display: none;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-envio{
+    padding: 5px;
+    margin: 5px 1px;
+    background-color: var(--success);
+    color: var(--white);
+    border: none;
+    border-radius: 1px;
+}
+
+.btn-envio:hover{
+    background-color: #218838;
+}
+
+.form-control{
+    width: 300px;
+    height: 25px;
+    display: block;
+    padding: 3px;
 }
