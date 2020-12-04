@@ -16,18 +16,18 @@ export default class Pagamento extends Component {
         const response = await api.get(`/pagamento`);
         this.setState({ pagamento: response.data });
     }
-    mostar = async () => {
-        const formElement = document.querySelector('div.insert');
-        if (formElement.style.display === "none") {
-            formElement.style.display = 'block';
+    mostrar() {
+        const groupElement =  document.querySelector('div#form_pag');
+        if (groupElement.style.display === "none") {
+            groupElement.style.display = "block";
         } else {
-            formElement.style.display = 'none';
+            groupElement.style.display = "none";
         }
     }
     somar = async () => {
         const pagamento = this.state.pagamento && this.state.pagamento;
 
-        const total = pagamento.map(pagamento => 
+        const total = pagamento.map(pagamento =>
             pagamento.reduce((acc, pag) => {
                 return (acc + pag.valor_juro);
             })
@@ -39,9 +39,9 @@ export default class Pagamento extends Component {
         const id_pag = uniqid();
         const valor_juro = await document.getElementById('juro').value;
         const valor_quitacao = await document.getElementById('quitacao').value;
-        // await api.post(`/pagamento`, { id_pag, id_emp, valor_juro, valor_quitacao });
+        await api.post(`/pagamento`, { id_pag, id, valor_juro, valor_quitacao });
         // alert( `Juros: ${valor_juro.toLocaleString('pt-br')} e Quitação ${valor_quitacao.toLocaleString('pt-br')}` );
-        console.log( { id_pag, id, valor_juro, valor_quitacao } );
+        console.log({ id_pag, id, valor_juro, valor_quitacao });
     }
     render() {
         return (
@@ -68,17 +68,16 @@ export default class Pagamento extends Component {
                                 })}
                             </tbody>
                         </table>
-                        <span className="new" title="Adicionar pagamento" onClick={() => this.mostar()}>&#10006;</span>
+                        <div className="click-group">
+                            <span className="new" title="Adicionar pagamento" onClick={() => this.mostrar()}>&#10006;</span>
+                            <label className="click">Click</label>
+                        </div>
                     </div>
-                    <div className="insert">
-                        <div className="form-group">
-                            <label className=".form-control">Juros</label>
-                            <input type="text" id="juro" className=".form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
-                        </div>
-                        <div className="form-group">
-                            <label className=".form-control">Quitação</label>
-                            <input type="text" id="quitacao" className=".form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
-                        </div>
+                    <div className="form-group" id="form_pag">
+                            <label className="form-control">Juros</label>
+                            <input type="text" id="juro" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
+                            <label className="form-control">Quitação</label>
+                            <input type="text" id="quitacao" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
                         <button id="envio" className="btn-success" onClick={() => this.pagar()}>Enviar</button>
                     </div>
                 </article>

@@ -69,56 +69,72 @@
     justify-content: space-between;
 }
 
-th, td{
-    padding: 5px;
-}
-
-table, th, td{
-    border: 1px solid #000;
-    text-align: center;
+td, th{
+    padding: 8px;
 }
 
 table{
-    width: 100%;
+    width: 90%;
+}
+
+table, th {
+    text-align: center;
+    border-bottom: 1px solid #474747;
     border-collapse: collapse;
 }
 
-span.new{width: 10%;
-    padding: 5px 10px;
+
+.click-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.click{
+    font-size: .6rem;
+    margin: 2px;
+}
+
+span.new{
+    color: green;
+    font-size: 1.5rem;
     transform: rotate(45deg);
-    color: var(--success);
-    cursor: pointer;
     font-weight: bold;
-    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .5s;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 span.new:hover{
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
-.insert{
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 300px;
+div.form-group {
     display: none;
-    margin-top: 15px;
-    margin: 5px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .form-group{
     display: flex;
     flex-direction: column;
 }
-.form-group input, label{
-    margin: 1px;
+
+.form-control{
+    width: 300px;
     height: 25px;
-    padding: 2px;
-    border-radius: 3px;
+    display: block;
+    padding: 3px;
 }
 
-.form-group input{
+/* .form-group input{
     border: 1px solid #ddd;
-}
+} */
 
 .btn-success{
     margin: 5px auto;
