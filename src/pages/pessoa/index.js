@@ -28,7 +28,6 @@ export default class Pessoa extends Component {
         this.setState(prevState => {
             const newPessoa = [...prevState.pessoa];
             newPessoa[0].parcelas[parcela - 1] = v;
-
             return {
                 ...prevState,
                 pessoa: newPessoa

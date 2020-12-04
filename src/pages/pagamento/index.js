@@ -13,11 +13,12 @@ export default class Pagamento extends Component {
         this.somar();
     }
     loadPagamento = async () => {
-        const response = await api.get(`/pagamento`);
+        const { id } = this.props.match.params;
+        const response = await api.get(`/pagamento/${id}`);
         this.setState({ pagamento: response.data });
     }
     mostrar() {
-        const groupElement =  document.querySelector('div#form_pag');
+        const groupElement = document.querySelector('div#form_pag');
         if (groupElement.style.display === "none") {
             groupElement.style.display = "block";
         } else {
@@ -27,7 +28,7 @@ export default class Pagamento extends Component {
     somar = async () => {
         const pagamento = this.state.pagamento && this.state.pagamento;
 
-        const total = pagamento.map(pagamento =>
+        const total = await pagamento.map(pagamento =>
             pagamento.reduce((acc, pag) => {
                 return (acc + pag.valor_juro);
             })
@@ -37,11 +38,23 @@ export default class Pagamento extends Component {
     pagar = async () => {
         const { id } = this.props.match.params;
         const id_pag = uniqid();
+        const emprestimo = id;
         const valor_juro = await document.getElementById('juro').value;
         const valor_quitacao = await document.getElementById('quitacao').value;
-        await api.post(`/pagamento`, { id_pag, id, valor_juro, valor_quitacao });
-        // alert( `Juros: ${valor_juro.toLocaleString('pt-br')} e Quitação ${valor_quitacao.toLocaleString('pt-br')}` );
-        console.log({ id_pag, id, valor_juro, valor_quitacao });
+        if (valor_juro === "" && valor_quitacao === "") {
+            return alert("Você precisa preencher pelo menos um valor, para realizar esta operação!");
+        } else {
+            await api.post(`/pagamento`, { id_pag, emprestimo, valor_juro, valor_quitacao });
+            alert("Pagamento adicionado com sucesso!")
+            window.location.reload();
+            this.setState(prevState => {
+                const newPagamento = [...prevState.pagamento];
+                return {
+                    ...prevState,
+                    pessoa: newPagamento
+                }
+            });
+        }
     }
     render() {
         return (
@@ -74,10 +87,10 @@ export default class Pagamento extends Component {
                         </div>
                     </div>
                     <div className="form-group" id="form_pag">
-                            <label className="form-control">Juros</label>
-                            <input type="text" id="juro" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
-                            <label className="form-control">Quitação</label>
-                            <input type="text" id="quitacao" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
+                        <label className="form-control">Juros</label>
+                        <input type="text" id="juro" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
+                        <label className="form-control">Quitação</label>
+                        <input type="text" id="quitacao" className="form-control" step="0.01" min="0.01" placeholder="R$ 100.00" />
                         <button id="envio" className="btn-success" onClick={() => this.pagar()}>Enviar</button>
                     </div>
                 </article>
