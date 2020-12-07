@@ -85,6 +85,11 @@ th {
     border-collapse: collapse;
 }
 
+.add_emprestimo {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
 .click-group {
     display: flex;
     flex-direction: column;
@@ -142,10 +147,6 @@ div.form-group {
         padding: 3px;
     }
 }
-
-/* .form-group input{
-    border: 1px solid #ddd;
-} */
 
 .btn-success {
     margin: 5px auto;
