@@ -10,7 +10,6 @@ export default class Pagamento extends Component {
     };
     componentDidMount() {
         this.loadPagamento();
-        this.somar();
     }
     loadPagamento = async () => {
         const { id } = this.props.match.params;
@@ -26,14 +25,9 @@ export default class Pagamento extends Component {
         }
     }
     somar = async () => {
-        const pagamento = this.state.pagamento && this.state.pagamento;
+        const total = this.state.pagamento.length > 0 && this.state.pagamento.reduce((acc, obj) => acc + obj[campo], 0);
 
-        const total = await pagamento.map(pagamento =>
-            pagamento.reduce((acc, pag) => {
-                return (acc + pag.valor_juro);
-            })
-        )
-        console.log("Total: " + total)
+        return total;
     }
     pagar = async () => {
         const { id } = this.props.match.params;
@@ -46,7 +40,7 @@ export default class Pagamento extends Component {
         } else {
             await api.post(`/pagamento`, { id_pag, emprestimo, valor_juro, valor_quitacao });
             alert("Pagamento adicionado com sucesso!")
-            window.location.reload();
+            // window.location.reload();
             this.setState(prevState => {
                 const newPagamento = [...prevState.pagamento];
                 return {
@@ -80,6 +74,13 @@ export default class Pagamento extends Component {
                                     )
                                 })}
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>{"R$ " + this.somar('valor_juro')}</td>
+                                    <td>{"R$ " + this.somar('valor_quitacao')}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                         <div className="click-group">
                             <span className="new" title="Adicionar pagamento" onClick={() => this.mostrar()}>&#10006;</span>

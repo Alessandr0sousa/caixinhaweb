@@ -1,10 +1,10 @@
-.pessoa-info{
+.pessoa-info {
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
 
-.pessoa-info article{
+.pessoa-info article {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -12,57 +12,56 @@
     padding: 10px;
 }
 
-a{
+.voltar {
     height: 22px;
-    border-radius: 5px;
-    border: 2px solid #da552f;
     background: none;
     margin-top: 10px;
     padding: 3px;
     color: #da552f;
     font-weight: bold;
-    font-size: 1rem;
     text-decoration: none;
-    /* display: block; */
     justify-content: center;
     justify-items: center;
     transition: all 0.3s;
+    font-size: 3rem;
+    cursor: pointer;
 }
-a.btn-emp{
+
+.voltar:hover {
+    color: #dc3545;
+    font-size: 3.1rem;
+}
+
+a.btn-emp {
     display: flex;
 }
 
-article{
+article {
     margin-top: 14px;
 }
 
-a:hover{
-    background: #da552f;
-    color: #fff;
-}
-
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
 }
 
-.parcelas{
+.parcelas {
     font-size: 1rem;
     margin: 5px;
     padding: 0;
 }
 
-.ok{
+.ok {
     color: #008000;
     cursor: pointer;
 }
 
-.nok{
+.nok {
     color: #ff0000;
     cursor: pointer;
 }
 
-.detatalhar{
+.detatalhar {
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Link } from "react-router-dom";
+import Emprestimo, {emprestimo} from "../emprestimo"; 
 
-import './style.css';
+import './styles.css';
 
 export default function Pessoa(props) {
     const { id } = props.match.params;
@@ -26,7 +27,7 @@ export default function Pessoa(props) {
     }
     return (
         <div className="pessoa-info" >
-            <Link to="/"><span>&#10140;</span></Link>
+            <Link to="/" className="voltar"><span>&#10140;</span></Link>
             {pessoa && pessoa.map(pessoa => {
                 const ok = String.fromCharCode(10004);
                 const nok = String.fromCharCode(10008);
@@ -42,7 +43,7 @@ export default function Pessoa(props) {
                             ))}
                         </div>
                         <div className="detatalhar">
-                            <Link className="btn-emp" to={`/emprestimo/${pessoa.id_pes}`}>Emprestimos</Link>
+                            <Emprestimo id={pessoa.id_pes}/>
                         </div>
                     </article>
                 )

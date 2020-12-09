@@ -90,6 +90,11 @@ th {
     grid-template-columns: auto auto;
 }
 
+.add_emprestimo.clik-group{
+    align-items: flex-end;
+    justify-content: end;
+}
+
 .click-group {
     display: flex;
     flex-direction: column;
@@ -110,8 +115,8 @@ span.new {
     cursor: pointer;
     transition: 0.5s;
     position: relative;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: end;
 }
 
 span.new:hover {

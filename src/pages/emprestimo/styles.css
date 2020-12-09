@@ -25,9 +25,9 @@
 }
 
 .emprestimo-info{
-    max-width: 500px;
-    margin: 20px auto 0;
-    padding: 0 20px;
+    width: 100%;
+    margin-top: 20px;
+    /* padding: 0 20px; */
 }
 
 .emprestimo-info article{
@@ -55,7 +55,7 @@
     justify-content: space-between;
 }
 
-a{
+.btn-pag{
     height: 22px;
     border-radius: 5px;
     border: 2px solid #da552f;
@@ -70,11 +70,35 @@ a{
     justify-content: center;
     justify-items: center;
     transition: all 0.3s;
-}
-a.btn-pag{
     display: flex;
 }
-a:hover{
+
+.btn-pag:hover{
     background: #da552f;
     color: #fff;
+}
+
+.add_emprestimo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 10px;
+}
+
+.add_emprestimo.clik-group{
+    height: 80px;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+span.new {
+    color: var(--warning);
+    font-size: 1.5rem;
+    transform: rotate(45deg);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    align-items: flex-end;
+    justify-content: end;
 }
