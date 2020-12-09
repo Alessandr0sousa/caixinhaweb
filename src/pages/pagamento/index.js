@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import uniqid from 'uniqid';
 // import { Link } from "react-router-dom";
 import './styles.css';
 
-export default class Pagamento extends Component {
-    state = {
-        pagamento: []
-    };
-    componentDidMount() {
-        this.loadPagamento();
-    }
+export default function Pagamento(props) {
+    const id = props.id;
+
+    useEffect(() => {
+        loadPagamento();
+     }, [])
     loadPagamento = async () => {
-        const { id } = this.props.match.params;
         const response = await api.get(`/pagamento/${id}`);
         this.setState({ pagamento: response.data });
     }
@@ -26,7 +24,6 @@ export default class Pagamento extends Component {
     }
     somar = async () => {
         const total = this.state.pagamento.length > 0 && this.state.pagamento.reduce((acc, obj) => acc + obj[campo], 0);
-
         return total;
     }
     pagar = async () => {
@@ -76,7 +73,7 @@ export default class Pagamento extends Component {
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td></td>
+                                    <td>Total</td>
                                     <td>{"R$ " + this.somar('valor_juro')}</td>
                                     <td>{"R$ " + this.somar('valor_quitacao')}</td>
                                 </tr>
