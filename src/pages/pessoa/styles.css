@@ -23,13 +23,13 @@
     justify-content: center;
     justify-items: center;
     transition: all 0.3s;
-    font-size: 3rem;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
 .voltar:hover {
     color: #dc3545;
-    font-size: 3.1rem;
+    font-size: 1.5rem;
 }
 
 a.btn-emp {

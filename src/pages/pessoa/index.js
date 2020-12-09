@@ -7,8 +7,8 @@ import './styles.css';
 
 export default function Pessoa(props) {
     const { id } = props.match.params;
-
     const [pessoa, setPessoa] = useState([]);
+    
     useEffect(() => {
         loadPessoa();
     }, [])
@@ -21,13 +21,12 @@ export default function Pessoa(props) {
         setPessoa(prevPessoa => {
             const newPessoa = [...prevPessoa];
             newPessoa[0].parcelas[parcela - 1] = v;
-            return newPessoa
-            
+            return newPessoa   
         });
     }
     return (
         <div className="pessoa-info" >
-            <Link to="/" className="voltar"><span>&#10140;</span></Link>
+            <Link to="/" className="voltar"><span>Voltar</span></Link>
             {pessoa && pessoa.map(pessoa => {
                 const ok = String.fromCharCode(10004);
                 const nok = String.fromCharCode(10008);

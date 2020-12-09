@@ -76,9 +76,10 @@ th {
 
 table {
     width: 90%;
+    border: none !important;
 }
 
-table,
+table, tbody, 
 th {
     text-align: center;
     border-bottom: 1px solid #474747;
