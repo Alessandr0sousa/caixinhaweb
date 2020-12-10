@@ -55,18 +55,28 @@ export default function Emprestimo(props) {
       </div>
       {emprestimo && emprestimo.map(emprestimo => {
         return (
-          <article key={emprestimo.id_emp}>
-            <div className="emprestimos">
-              <label>Valor emprestado</label>
-              <div>
-                <span className="emprestimo-valor">{"R$ " + emprestimo.valor.toLocaleString('pt-br')}</span>
+          <div key={emprestimo.id_emp}>
+            <article>
+              <div className="emprestimos">
+                <label>Valor emprestado</label>
+                <div>
+                  <span className="emprestimo-valor">{"R$ " + emprestimo.valor.toLocaleString('pt-br')}</span>
+                </div>
+                <div className="emprestimos-group">
+                  <span className="emprestimo-data">{emprestimo.data}</span>
+                </div>
               </div>
-              <div className="emprestimos-group">
-                <span className="emprestimo-data">{emprestimo.data}</span>
-                <Link className="btn-pag" to={`/pagamento/${emprestimo.id_emp}`}>Pagamentos</Link>
+              <div className="total">
+                <label className="emprestimo-label">Total juros</label>
+                <span className="emprestimo-valor">{"R$ " + emprestimo.total_juro.toLocaleString('pt-br')}</span>
               </div>
-            </div>
-          </article>);
+              <div className="debito">
+                <label className="emprestimo-label">Débito</label>
+                <span className="emprestimo-valor">{"R$ " + emprestimo.valor_atual.toLocaleString('pt-br')}</span>
+              </div>
+              <Link className="btn-pag" to={`/pagamento/${emprestimo.id_emp}`}>Pagamentos</Link>
+            </article>
+          </div>)
       })}
     </div>
   );
