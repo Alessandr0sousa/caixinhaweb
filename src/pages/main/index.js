@@ -47,7 +47,7 @@ export default function Main() {
             await api.post(`/pessoa`, newPessoa);
             await api.post(`/cota`, { id_cota, pessoa, grupo });
             alert("Cotista adicionado com sucesso!")
-           setPessoa(prevPessoa => [...prevPessoa, newPessoa])
+            setPessoa(prevPessoa => [...prevPessoa, newPessoa])
         }
     }
     return (
@@ -62,14 +62,14 @@ export default function Main() {
                 </div>
                 <div className="form-group" id="register">
                     <label className="form-control">Nome</label>
-                    <input type="text" className="form-control" id="pessoa-nome" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} autoComplete="off"/>
+                    <input type="text" className="form-control" id="pessoa-nome" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} autoComplete="off" />
                     <label className="form-control">Telefone</label>
-                    <input type="tel" className="form-control" id="pessoa-telefone" placeholder="(xx) xxxxx-xxxx" value={telefone} onChange={e => setTelafone(e.target.value)}/>
+                    <input type="tel" className="form-control" id="pessoa-telefone" placeholder="(xx) xxxxx-xxxx" value={telefone} onChange={e => setTelafone(e.target.value)} />
                     <label className="form-control">E-mail</label>
-                    <input type="email" className="form-control" id="pessoa-email" placeholder="email@seuemail.com" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input type="email" className="form-control" id="pessoa-email" placeholder="email@seuemail.com" value={email} onChange={e => setEmail(e.target.value)} />
                     <label className="form-control">Grupo</label>
                     <select className="form-control">
-                        {grupo && grupo.map(grupo=>(<option key={grupo.id_grupo} value={grupo.id_grupo}>{grupo.nome_caixinha}</option>))
+                        {grupo && grupo.map(grupo => (<option key={grupo.id_grupo} value={grupo.id_grupo}>{grupo.nome_caixinha}</option>))
                         }
                     </select>
                     <button id="envio" className="btn-success" onClick={() => salvar()}>Enviar</button>

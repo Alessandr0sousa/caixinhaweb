@@ -5,7 +5,7 @@ function Loader() {
     const [loading, setLoading] = useState(true);
     
     useEffect(()=>{
-
+        timer();
     });
 
     const timer = ()=>{
@@ -15,7 +15,9 @@ function Loader() {
     }
     return(
         <div className="fundo">
-            <div id="square"></div>
+            <div id="square">
+                <div id="circle"></div>
+            </div>
         </div>
     )
 

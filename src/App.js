@@ -7,8 +7,8 @@ import Header from './components/Header';
 import Loading from './components/loading';
 const App = () => (
   <div className="App">
-    <Loading />
-    {/* <Header /> */}
+    {/* <Loading /> */}
+    <Header />
     <Routes />
   </div>
 );
