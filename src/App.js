@@ -4,7 +4,7 @@ import Routes from "./routes";
 import "./styles.css";
 
 import Header from './components/Header';
-import Loading from './loading';
+import Loading from './components/loading';
 const App = () => (
   <div className="App">
     <Loading />
