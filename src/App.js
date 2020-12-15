@@ -4,10 +4,11 @@ import Routes from "./routes";
 import "./styles.css";
 
 import Header from './components/Header';
-// import Main from './pages/main';
+import Loading from './loading';
 const App = () => (
   <div className="App">
-    <Header />
+    <Loading />
+    {/* <Header /> */}
     <Routes />
   </div>
 );
