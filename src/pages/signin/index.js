@@ -9,7 +9,7 @@ export default function Login() {
 
     useEffect(() => {
         // validacao();
-    },[]);
+    }, []);
     const validacao = async () => {
         const nome = usuario;
         let newLogin = { nome, senha }
@@ -18,16 +18,22 @@ export default function Login() {
     }
     return (
         <div id="form-login">
-            <div className="form-group">
-                <label className="form-control">Usuario</label>
-                <input type="text" name="user" id="user" value={usuario} onChange={e => setUsuario(e.target.value)} />
+            <div className="grid">
+                <div className="logo">
+                    <div>
+                        <font>C</font>
+                        <div className="title-group2">
+                            <span>aixinha</span>
+                            <p>Web</p>
+                        </div>
+                    </div>
+                </div>
+                <article>
+                    <input className="form-control" type="text" name="user" id="user" value={usuario} onChange={e => setUsuario(e.target.value)} placeholder="Usuário" />
+                    <input className="form-control" type="password" name="senha" id="senha" value={senha} onChange={e => setSenha(e.target.value)} placeholder="Senha" />
+                    <div className="btn" onClick={() => validacao()}>Entrar</div>
+                </article>
             </div>
-            <div className="form-group">
-                <label className="form-control">Senha</label>
-                <input type="password" name="senha" id="senha" value={senha} onChange={e => setSenha(e.target.value)} />
-            </div>
-            <div className="btn" onClick={() => validacao()}>Login</div>
         </div>
     );
 }
- 
