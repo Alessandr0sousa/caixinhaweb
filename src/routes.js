@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import { isAuthenticated } from "./services/auth";
+// import { isAuthenticated } from "./services/auth";
 
 import Main from './pages/main';
 import Pessoa from './pages/pessoa';

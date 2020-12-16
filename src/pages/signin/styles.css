@@ -1,0 +1,43 @@
+div#form-login{
+    max-width: 300px;
+    margin: 10px auto 0;
+    padding: 0 20px;
+}
+
+div.form-group {
+    display: block !important;
+    padding: 5px;
+    background: none !important;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 300px;
+    height: 25px;
+    display: block;
+    padding: 3px;
+}
+
+.btn{
+    width: 65px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    padding: 3px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: .85rem;
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    /*justify-content: center;
+    justify-items: center; */
+    transition: all 0.3s;
+}
+.btn:hover{
+    background: #da552f;
+    color: #fff;
+}
