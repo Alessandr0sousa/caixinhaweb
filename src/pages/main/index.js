@@ -61,13 +61,9 @@ export default function Main() {
                     </div>
                 </div>
                 <div className="form-group" id="register">
-                    <label className="form-control">Nome</label>
                     <input type="text" className="form-control" id="pessoa-nome" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} autoComplete="off" />
-                    <label className="form-control">Telefone</label>
                     <input type="tel" className="form-control" id="pessoa-telefone" placeholder="(xx) xxxxx-xxxx" value={telefone} onChange={e => setTelafone(e.target.value)} />
-                    <label className="form-control">E-mail</label>
                     <input type="email" className="form-control" id="pessoa-email" placeholder="email@seuemail.com" value={email} onChange={e => setEmail(e.target.value)} />
-                    <label className="form-control">Grupo</label>
                     <select className="form-control">
                         {grupo && grupo.map(grupo => (<option key={grupo.id_grupo} value={grupo.id_grupo}>{grupo.nome_caixinha}</option>))
                         }

@@ -60,6 +60,7 @@
 
 div.form-group {
     display: none;
+    width: 400px;
     padding: 10px;
     background: #fff;
     border-radius: 5px;

@@ -64,6 +64,16 @@ div#form-login article img {
     box-shadow: 0.3rem 0.5rem 0.6rem rgba(0, 0, 0, 0.4);
 }
 
+@media screen and (max-width: 500px) {
+    .grid {
+        display: block;
+        width: auto;
+        height: 400px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 div.logo {
     width: 50%;
     padding: 10px;
@@ -80,7 +90,7 @@ div.logo div {
 
 div.logo div font {
     padding-top: 2px;
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .title-group2 {
